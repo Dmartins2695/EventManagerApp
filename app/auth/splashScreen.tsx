@@ -1,2 +1,2 @@
-import { SplashScreen } from '@/screens/auth/screenSplash/screenSplash'
+import { SplashScreen } from '@/screens/auth/screen-splash/screen-splash'
 export default SplashScreen

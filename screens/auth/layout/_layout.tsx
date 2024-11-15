@@ -3,13 +3,21 @@ import { VStack } from '@/components/ui/vstack'
 import { SafeAreaView } from '@/components/ui/safe-area-view'
 import { ScrollView } from '@/components/ui/scroll-view'
 import { Image } from '@/components/ui/image'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 
 type AuthLayoutProps = {
   children: React.ReactNode
 }
+const styles = StyleSheet.create({
+  image: {
+    height: '100%',
+    width: '100%',
+  },
+})
 
 const AuthLayout = (props: AuthLayoutProps) => {
+  // @ts-ignore
   return (
     <SafeAreaView className="w-full h-full">
       <ScrollView
@@ -22,9 +30,8 @@ const AuthLayout = (props: AuthLayoutProps) => {
             space="md"
           >
             <Image
-              height="100%"
-              width="100%"
-              source={require('@/screens/auth/assets/radialGradient.png')}
+              style={styles.image}
+              source={require('@/assets/images/ejasLogo.png')}
               className="object-cover h-full w-full"
               alt="Radial Gradient"
             />

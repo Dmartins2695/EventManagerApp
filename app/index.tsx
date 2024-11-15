@@ -1,29 +1,81 @@
-import { VStack } from '@/components/ui/vstack'
-import { Image, StyleSheet } from 'react-native'
 import React from 'react'
-import { Text } from '@/components/ui/text'
-import { Button, ButtonText, ButtonIcon } from '@/components/ui/button'
+import { Button, ButtonText } from '@/components/ui/button'
+import { router } from 'expo-router'
+import { SafeAreaView } from '@/components/ui/safe-area-view'
+import { VStack } from '@/components/ui/vstack'
 
-const styles = StyleSheet.create({
-  image: {
-    height: 20,
-    width: 20,
-  },
-})
-
-export default function Index() {
+const index = () => {
   return (
-    <>
-      <VStack>
-        <Image
-          style={styles.image}
-          resizeMode="contain"
-          source={require('@/assets/images/ejasLogo.png')}
-        />
-        <Button className="bg-blue-500 p-4 rounded-lg">
-          <ButtonText className="text-white">Click Me</ButtonText>
+    <SafeAreaView className="md:flex flex-col items-center justify-center md:w-full h-full">
+      <VStack className="p-2 md:max-w-[440px] w-full" space="xl">
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('auth/splash-screen')
+          }}
+        >
+          <ButtonText>SplashScreen</ButtonText>
+        </Button>
+        <Button
+          className="w-full"
+          onPress={() => {
+            // @ts-ignore
+            router.push('auth/signin')
+          }}
+        >
+          <ButtonText>Sign in</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('auth/signup')
+          }}
+        >
+          <ButtonText>Sign up</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('auth/forgot-password')
+          }}
+        >
+          <ButtonText>Forgot password</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('auth/create-password')
+          }}
+        >
+          <ButtonText>Create password</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('news-feed/news-and-feed')
+          }}
+        >
+          <ButtonText>News feed</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('dashboard/dashboard-layout')
+          }}
+        >
+          <ButtonText>Dashboard</ButtonText>
+        </Button>
+        <Button
+          onPress={() => {
+            // @ts-ignore
+            router.push('profile/profile')
+          }}
+        >
+          <ButtonText>Profile</ButtonText>
         </Button>
       </VStack>
-    </>
+    </SafeAreaView>
   )
 }
+
+export default index
