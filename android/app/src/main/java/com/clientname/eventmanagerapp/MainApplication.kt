@@ -1,4 +1,4 @@
-package com.anonymous.EventManagerApp
+package com.clientname.eventmanagerapp
 
 import android.app.Application
 import android.content.res.Configuration

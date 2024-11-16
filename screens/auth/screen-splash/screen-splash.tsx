@@ -5,6 +5,8 @@ import React from 'react'
 import { useRouter } from '@unitools/router'
 import { Image } from '@/components/ui/image'
 import AuthLayout from '@/screens/auth/layout/_layout'
+import { Text } from '@/components/ui/text'
+import auth from '@react-native-firebase/auth'
 
 const SplashScreenWithLeftBackground = () => {
   const router = useRouter()
@@ -13,8 +15,7 @@ const SplashScreenWithLeftBackground = () => {
   return (
     <VStack
       className="w-full max-w-[440px] items-center h-full justify-around"
-      space="lg"
-    >
+      space="lg">
       {/* Use Image component instead of Icon for custom PNG */}
       <Image
         source={imageSource}
@@ -25,15 +26,13 @@ const SplashScreenWithLeftBackground = () => {
           className="w-full"
           onPress={() => {
             router.push('/auth/signin')
-          }}
-        >
+          }}>
           <ButtonText className="font-medium">Log in</ButtonText>
         </Button>
         <Button
           onPress={() => {
             router.push('/auth/signup')
-          }}
-        >
+          }}>
           <ButtonText className="font-medium">Sign Up</ButtonText>
         </Button>
       </VStack>
@@ -41,10 +40,18 @@ const SplashScreenWithLeftBackground = () => {
   )
 }
 
+const RedirectToHomeScreen = () => {
+  const router = useRouter()
+  router.push('/user/dashboard')
+  return <></>
+}
+
 export const SplashScreen = () => {
+  const user = auth().currentUser
+
   return (
     <AuthLayout>
-      <SplashScreenWithLeftBackground />
+      {!user ? <SplashScreenWithLeftBackground /> : <RedirectToHomeScreen />}
     </AuthLayout>
   )
 }

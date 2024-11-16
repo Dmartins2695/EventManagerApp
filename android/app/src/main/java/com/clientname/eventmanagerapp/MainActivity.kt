@@ -1,4 +1,4 @@
-package com.anonymous.EventManagerApp
+package com.clientname.eventmanagerapp
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

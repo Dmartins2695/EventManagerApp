@@ -38,7 +38,6 @@ import { GoogleSigninButton } from '@react-native-google-signin/google-signin'
 import { Pressable } from '@/components/ui/pressable'
 import { useRouter } from '@unitools/router'
 import AuthLayout from '@/screens/auth/layout/_layout'
-import auth from '@react-native-firebase/auth'
 import { Spinner } from '@/components/ui/spinner'
 
 const loginSchema = z.object({
@@ -65,17 +64,6 @@ const LoginWithLeftBackground = () => {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [initializing, setInitializing] = useState(true)
-  const [user, setUser] = useState()
-
-  const onAuthStateChanged = user => {
-    setUser(user)
-    if (initializing) setInitializing(false)
-  }
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
-    return subscriber // unsubscribe on unmount
-  }, [])
 
   const onSubmit = (data: LoginSchemaType) => {
     /* setLoading(true)
