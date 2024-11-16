@@ -31,7 +31,7 @@ const AuthLayout = (props: AuthLayoutProps) => {
           >
             <Image
               style={styles.image}
-              source={require('@/assets/images/ejasLogo.png')}
+              source={require('@/assets/images/ejasLogo-Photoroom.png')}
               className="object-cover h-full w-full"
               alt="Radial Gradient"
             />

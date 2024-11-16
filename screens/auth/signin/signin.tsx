@@ -114,27 +114,27 @@ const LoginWithLeftBackground = () => {
   const router = useRouter()
 
   return (
-    <VStack className="max-w-[440px] w-full" space="md">
-      <VStack className="md:items-center" space="md">
+    <VStack className="max-w-[440px] w-full h-full" space="md">
+      <VStack className="md:items-center place-items-start" space="md">
         <Pressable
           onPress={() => {
-            router.back()
+            console.log('pressed')
+            router.push('/auth/splash-screen')
           }}
         >
           <Icon
             as={ArrowLeftIcon}
-            className="md:hidden text-background-800 h-1 w-1"
-            size="2xs"
+            className="md:hidden text-background-800"
+            size="xl"
           />
         </Pressable>
         <VStack>
           <Heading className="md:text-center" size="3xl">
-            Log in
+            Login
           </Heading>
-          <Text>Login to start using gluestack</Text>
         </VStack>
       </VStack>
-      <VStack className="w-full">
+      <VStack className="w-full place-items-center">
         <VStack space="xl" className="w-full">
           <FormControl
             isInvalid={!!errors?.email || !validated.emailValid}

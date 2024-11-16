@@ -9,7 +9,6 @@ import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider'
-import { useColorScheme } from 'react-native'
 import '../global.css'
 
 export {
@@ -50,11 +49,9 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme()
-
   return (
-    <GluestackUIProvider mode={(colorScheme ?? 'light') as 'light' | 'dark'}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <GluestackUIProvider mode={'light'}>
+      <ThemeProvider value={DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signin" />
           <Stack.Screen name="signup" />
