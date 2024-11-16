@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Toast, ToastTitle, useToast } from '@/components/ui/toast'
+import React, { useEffect, useState } from 'react'
+import { useToast } from '@/components/ui/toast'
 import { HStack } from '@/components/ui/hstack'
 import { VStack } from '@/components/ui/vstack'
 import { Heading } from '@/components/ui/heading'
@@ -28,9 +28,9 @@ import {
   EyeOffIcon,
   Icon,
 } from '@/components/ui/icon'
-import { Button, ButtonText, ButtonIcon } from '@/components/ui/button'
+import { Button, ButtonText } from '@/components/ui/button'
 import { Keyboard } from 'react-native'
-import { useForm, Controller } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertTriangle } from 'lucide-react-native'
@@ -38,21 +38,8 @@ import { GoogleSigninButton } from '@react-native-google-signin/google-signin'
 import { Pressable } from '@/components/ui/pressable'
 import { useRouter } from '@unitools/router'
 import AuthLayout from '@/screens/auth/layout/_layout'
-
-const USERS = [
-  {
-    email: 'gabrial@gmail.com',
-    password: 'Gabrial@123',
-  },
-  {
-    email: 'tom@gmail.com',
-    password: 'Tom@123',
-  },
-  {
-    email: 'thomas@gmail.com',
-    password: 'Thomas@1234',
-  },
-]
+import auth from '@react-native-firebase/auth'
+import { Spinner } from '@/components/ui/spinner'
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -76,31 +63,53 @@ const LoginWithLeftBackground = () => {
     emailValid: true,
     passwordValid: true,
   })
+  const [showPassword, setShowPassword] = useState(false)
+  const [initializing, setInitializing] = useState(true)
+  const [user, setUser] = useState()
+
+  const onAuthStateChanged = user => {
+    setUser(user)
+    if (initializing) setInitializing(false)
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+    return subscriber // unsubscribe on unmount
+  }, [])
 
   const onSubmit = (data: LoginSchemaType) => {
-    const user = USERS.find(element => element.email === data.email)
-    if (user) {
-      if (user.password !== data.password)
-        setValidated({ emailValid: true, passwordValid: false })
-      else {
-        setValidated({ emailValid: true, passwordValid: true })
-        toast.show({
-          placement: 'bottom right',
-          render: ({ id }) => {
-            return (
-              <Toast nativeID={id} variant="outline" action="success">
-                <ToastTitle>Logged in successfully!</ToastTitle>
-              </Toast>
-            )
-          },
-        })
-        reset()
+    /* setLoading(true)
+    try {
+      if (user) {
+        if (user.password !== data.password)
+          setValidated({ emailValid: true, passwordValid: false })
+        await auth().signInWithEmailAndPassword(email, password)
+      else
+        {
+          setValidated({ emailValid: true, passwordValid: true })
+          toast.show({
+            placement: 'bottom right',
+            render: ({ id }) => {
+              return (
+                <Toast nativeID={id} variant="outline" action="success">
+                  <ToastTitle>Logged in successfully!</ToastTitle>
+                </Toast>
+              )
+            },
+          })
+          reset()
+        }
+      } else {
+        setValidated({ emailValid: false, passwordValid: true })
       }
-    } else {
-      setValidated({ emailValid: false, passwordValid: true })
-    }
+    } catch (e) {
+      const err = e as FirebaseError
+      //ver como por um alert fixe
+      alert('Sign in failed: ' + err.message)
+    } finally {
+      setLoading(false)
+    }*/
   }
-  const [showPassword, setShowPassword] = useState(false)
 
   const handleState = () => {
     setShowPassword(showState => {
@@ -113,6 +122,15 @@ const LoginWithLeftBackground = () => {
   }
   const router = useRouter()
 
+  if (initializing) {
+    return (
+      <HStack space="sm">
+        <Spinner />
+        <Text size="md">Logging in...</Text>
+      </HStack>
+    )
+  }
+
   return (
     <VStack className="max-w-[440px] w-full h-full" space="md">
       <VStack className="md:items-center place-items-start" space="md">
@@ -120,8 +138,7 @@ const LoginWithLeftBackground = () => {
           onPress={() => {
             console.log('pressed')
             router.push('/auth/splash-screen')
-          }}
-        >
+          }}>
           <Icon
             as={ArrowLeftIcon}
             className="md:hidden text-background-800"
@@ -138,8 +155,7 @@ const LoginWithLeftBackground = () => {
         <VStack space="xl" className="w-full">
           <FormControl
             isInvalid={!!errors?.email || !validated.emailValid}
-            className="w-full"
-          >
+            className="w-full">
             <FormControlLabel>
               <FormControlLabelText>Email</FormControlLabelText>
             </FormControlLabel>
@@ -181,8 +197,7 @@ const LoginWithLeftBackground = () => {
           {/* Label Message */}
           <FormControl
             isInvalid={!!errors.password || !validated.passwordValid}
-            className="w-full"
-          >
+            className="w-full">
             <FormControlLabel>
               <FormControlLabelText>Password</FormControlLabelText>
             </FormControlLabel>
@@ -239,8 +254,7 @@ const LoginWithLeftBackground = () => {
                   value="Remember me"
                   isChecked={value}
                   onChange={onChange}
-                  aria-label="Remember me"
-                >
+                  aria-label="Remember me">
                   <CheckboxIndicator>
                     <CheckboxIcon as={CheckIcon} />
                   </CheckboxIndicator>
@@ -272,8 +286,7 @@ const LoginWithLeftBackground = () => {
           <Link href="/auth/signup">
             <LinkText
               className="font-medium text-primary-700 group-hover/link:text-primary-600  group-hover/pressed:text-primary-700"
-              size="md"
-            >
+              size="md">
               Sign up
             </LinkText>
           </Link>
