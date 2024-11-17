@@ -34,11 +34,9 @@ import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertTriangle } from 'lucide-react-native'
-import { GoogleSigninButton } from '@react-native-google-signin/google-signin'
 import { Pressable } from '@/components/ui/pressable'
-import { useRouter } from '@unitools/router'
+import { useNavigation } from '@react-navigation/native'
 import AuthLayout from '@/screens/auth/layout/_layout'
-import { Spinner } from '@/components/ui/spinner'
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -63,7 +61,6 @@ const LoginWithLeftBackground = () => {
     passwordValid: true,
   })
   const [showPassword, setShowPassword] = useState(false)
-  const [initializing, setInitializing] = useState(true)
 
   const onSubmit = (data: LoginSchemaType) => {
     /* setLoading(true)
@@ -108,24 +105,19 @@ const LoginWithLeftBackground = () => {
     Keyboard.dismiss()
     handleSubmit(onSubmit)()
   }
-  const router = useRouter()
-
-  if (initializing) {
-    return (
-      <HStack space="sm">
-        <Spinner />
-        <Text size="md">Logging in...</Text>
-      </HStack>
-    )
-  }
+  const navigation = useNavigation()
 
   return (
     <VStack className="max-w-[440px] w-full h-full" space="md">
       <VStack className="md:items-center place-items-start" space="md">
         <Pressable
           onPress={() => {
-            console.log('pressed')
-            router.push('/auth/splash-screen')
+            if (navigation.canGoBack()) {
+              navigation.goBack()
+            } else {
+              // @ts-ignore
+              navigation.navigate('index')
+            }
           }}>
           <Icon
             as={ArrowLeftIcon}
@@ -261,13 +253,6 @@ const LoginWithLeftBackground = () => {
           <Button className="w-full" onPress={handleSubmit(onSubmit)}>
             <ButtonText className="font-medium">Log in</ButtonText>
           </Button>
-          <GoogleSigninButton
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Dark}
-            onPress={() => {
-              // initiate sign in
-            }}
-          />
         </VStack>
         <HStack className="self-center" space="sm">
           <Text size="md">Don't have an account?</Text>
