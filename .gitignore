@@ -35,8 +35,5 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-# ai chat
-.idea/
-
 
 app-example
