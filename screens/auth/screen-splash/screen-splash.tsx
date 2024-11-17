@@ -53,7 +53,7 @@ export const SplashScreen = () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(currentUser => {
-      setUser(currentUser)
+      setUser(currentUser as User | null)
     })
 
     return () => unsubscribe() // Cleanup the listener on unmount
