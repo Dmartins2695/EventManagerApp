@@ -83,7 +83,7 @@ const SignUpWithLeftBackground = () => {
         placement: 'bottom right',
         render: ({ id }) => {
           return (
-            <Toast nativeID={id} variant="solid" action="success">
+            <Toast nativeID={id} variant="outline" action="success">
               <ToastTitle>Success</ToastTitle>
             </Toast>
           )

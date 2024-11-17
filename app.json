@@ -30,18 +30,10 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/auth",
-      "@react-native-firebase/messaging",
+      "@expo/firebase-core",
+      "@expo/firebase-auth",
+      "@expo/firebase-firestore",
       "expo-router",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "useFrameworks": "static"
-          }
-        }
-      ],
       [
         "expo-splash-screen",
         {
