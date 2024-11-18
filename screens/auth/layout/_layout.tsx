@@ -32,7 +32,7 @@ const AuthLayout = (props: AuthLayoutProps) => {
         </HStack>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 
 export default AuthLayout

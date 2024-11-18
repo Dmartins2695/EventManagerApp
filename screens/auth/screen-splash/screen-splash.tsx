@@ -36,7 +36,7 @@ const SplashScreenWithLeftBackground = () => {
         </Button>
       </VStack>
     </VStack>
-  )
+  );
 }
 
 const RedirectToHomeScreen = () => {
@@ -60,5 +60,5 @@ export const SplashScreen = () => {
     <AuthLayout>
       {user ? <RedirectToHomeScreen /> : <SplashScreenWithLeftBackground />}
     </AuthLayout>
-  )
+  );
 }

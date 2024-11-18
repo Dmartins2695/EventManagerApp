@@ -54,5 +54,5 @@ function RootLayoutNav() {
           <Stack.Screen name="user/dahboard" />*/}
       </Stack>
     </GluestackUIProvider>
-  )
+  );
 }
