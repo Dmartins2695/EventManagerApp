@@ -9,5 +9,5 @@ export const Dashboard = () => {
     <View>
       <Text>Welcome to dashboard {user?.email}</Text>
     </View>
-  )
+  );
 }

@@ -63,5 +63,5 @@ function RootLayoutNav() {
       </Stack>
       {/*</ThemeProvider>*/}
     </GluestackUIProvider>
-  )
+  );
 }

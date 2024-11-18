@@ -17,7 +17,7 @@ const Index = () => {
     <View className="flex-1 justify-center items-center bg-red-500 debug-screens">
       <Text className="text-white text-xl">NativeWind Test</Text>
     </View>
-  )
+  );
 }
 
 export default Index

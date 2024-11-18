@@ -266,7 +266,7 @@ const LoginWithLeftBackground = () => {
         </HStack>
       </VStack>
     </VStack>
-  )
+  );
 }
 
 export const SignIn = () => {
@@ -274,5 +274,5 @@ export const SignIn = () => {
     <AuthLayout>
       <LoginWithLeftBackground />
     </AuthLayout>
-  )
+  );
 }

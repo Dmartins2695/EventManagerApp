@@ -86,7 +86,7 @@ const SignUpWithLeftBackground = () => {
             <Toast nativeID={id} variant="outline" action="success">
               <ToastTitle>Success</ToastTitle>
             </Toast>
-          )
+          );
         },
       })
       reset()
@@ -98,7 +98,7 @@ const SignUpWithLeftBackground = () => {
             <Toast nativeID={id} variant="solid" action="error">
               <ToastTitle>Passwords do not match</ToastTitle>
             </Toast>
-          )
+          );
         },
       })
     }
@@ -327,7 +327,7 @@ const SignUpWithLeftBackground = () => {
         </HStack>
       </VStack>
     </VStack>
-  )
+  );
 }
 
 export const SignUp = () => {
@@ -335,5 +335,5 @@ export const SignUp = () => {
     <AuthLayout>
       <SignUpWithLeftBackground />
     </AuthLayout>
-  )
+  );
 }
