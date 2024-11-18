@@ -47,12 +47,12 @@ function RootLayoutNav() {
   return (
     <GluestackUIProvider mode={'light'}>
       <Stack screenOptions={{ headerShown: false }}>
-        {/*<Stack.Screen name="auth/signin" />
-          <Stack.Screen name="auth/signup" />*/}
+        <Stack.Screen name="auth/signin" />
+        <Stack.Screen name="auth/signup" />
         {/*<Stack.Screen name="forgot-password" />
           <Stack.Screen name="create-password" />
           <Stack.Screen name="user/dahboard" />*/}
       </Stack>
     </GluestackUIProvider>
-  );
+  )
 }

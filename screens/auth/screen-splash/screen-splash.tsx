@@ -17,12 +17,12 @@ const SplashScreenWithLeftBackground = () => {
       space="lg">
       <Image
         source={imageSource}
-        className={`max-w-[50px] max-h-[50px] w-[20%] h-[20%] rounded-full border-0 p-0 overflow-hidden `}
+        className={`max-w-[50px] max-h-[50px] w-[10%] h-[10%] rounded-full border-0 p-0 overflow-hidden `}
         alt={'logo'}
       />
-      <VStack className="w-full" space="lg">
+      <VStack className="w-full h-2 gap-4" space="sm">
         <Button
-          className="w-full"
+          className="w-full my-5"
           onPress={() => {
             router.push('/auth/signin')
           }}>
@@ -36,7 +36,7 @@ const SplashScreenWithLeftBackground = () => {
         </Button>
       </VStack>
     </VStack>
-  );
+  )
 }
 
 const RedirectToHomeScreen = () => {
@@ -60,5 +60,5 @@ export const SplashScreen = () => {
     <AuthLayout>
       {user ? <RedirectToHomeScreen /> : <SplashScreenWithLeftBackground />}
     </AuthLayout>
-  );
+  )
 }
