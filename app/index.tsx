@@ -17,7 +17,7 @@ const Index = () => {
     <SafeAreaView className="flex items-center justify-center h-full">
       <ActivityIndicator size="large" color="#0000ff" />
     </SafeAreaView>
-  );
+  )
 }
 
 export default Index
