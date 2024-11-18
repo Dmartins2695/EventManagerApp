@@ -5,136 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d176163-032f-42ca-ac99-69027725c0cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EventManagerApp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easycode.ignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easycode/codebase-v2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleService-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/signin.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/signup.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/splash-screen.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/dashboard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/SpaceMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/adaptive-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/ejasIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/ejasLogo-Photoroom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/ejasLogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/partial-react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/splash-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/accordion/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/actionsheet/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/alert-dialog/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/alert/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/avatar/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/badge/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/box/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/box/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/box/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/button/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/card/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/card/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/card/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/center/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/center/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/center/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/checkbox/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/divider/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/drawer/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/fab/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/flat-list/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/form-control/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/script.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/grid/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/grid/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/grid/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/heading/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/heading/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/heading/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/hstack/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/hstack/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/hstack/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/icon/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/icon/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/image-background/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/image/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/input-accessory-view/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/input/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/keyboard-avoiding-view/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/link/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/menu/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/modal/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/popover/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/portal/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/pressable/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/progress/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/radio/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/refresh-control/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/safe-area-view/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/scroll-view/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/section-list/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/select/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/select/select-actionsheet.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/skeleton/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/skeleton/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/skeleton/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/slider/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/spinner/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/status-bar/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/switch/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/table/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/table/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/table/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/text/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/text/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/text/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/textarea/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/toast/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/tooltip/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/utils/use-break-point-value.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/view/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/virtualized-list/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/vstack/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/vstack/index.web.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/vstack/styles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expo.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebaseConfig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google-services.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/metro.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nativewind-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patches/react-native-css-interop+0.0.36.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/assets/radialGradient.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/layout/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/screen-splash/assets/icons/gluestack-icon/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/screen-splash/screen-splash.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/signin/signin.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/signup/signup.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,26 +26,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;startover&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC-PC/Desktop/EjasEventManagerApp/EventManagerApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "startover",
+    "last_opened_file_path": "C:/Users/PC-PC/Desktop/EjasEventManagerApp/EventManagerApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.reset-project.executor": "Run",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash\assets\icons" />
@@ -252,6 +124,7 @@
       <workItem from="1731847964581" duration="8946000" />
       <workItem from="1731918138480" duration="10178000" />
       <workItem from="1731934823650" duration="644000" />
+      <workItem from="1731935684782" duration="215000" />
     </task>
     <servers />
   </component>
