@@ -22,13 +22,11 @@ const AuthLayout = (props: AuthLayoutProps) => {
     <SafeAreaView className="w-full h-full">
       <ScrollView
         className="w-full h-full"
-        contentContainerStyle={{ flexGrow: 1 }}
-      >
+        contentContainerStyle={{ flexGrow: 1 }}>
         <HStack className="w-full h-full bg-background-0 flex-grow justify-center">
           <VStack
-            className="relative hidden md:flex h-full w-full flex-1  items-center  justify-center"
-            space="md"
-          >
+            className="relative hidden h-full w-full flex-1  items-center  justify-center"
+            space="md">
             <Image
               style={styles.image}
               source={require('@/assets/images/ejasLogo-Photoroom.png')}
@@ -36,7 +34,7 @@ const AuthLayout = (props: AuthLayoutProps) => {
               alt="Radial Gradient"
             />
           </VStack>
-          <VStack className="md:items-center md:justify-center flex-1 w-full  p-9 md:gap-10 gap-16 md:m-auto md:w-1/2 h-full">
+          <VStack className="items-center justify-center flex-1 w-full  p-9 gap-16 m-auto h-full">
             {props.children}
           </VStack>
         </HStack>

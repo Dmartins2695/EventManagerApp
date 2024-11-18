@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider'
 import '../global.css'
+import config from '@/gluestack-ui.config.json'
 
 export {
   // Catch any errors thrown by the Layout component.

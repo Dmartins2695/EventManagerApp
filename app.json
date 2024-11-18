@@ -30,9 +30,6 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "@expo/firebase-core",
-      "@expo/firebase-auth",
-      "@expo/firebase-firestore",
       "expo-router",
       [
         "expo-splash-screen",
