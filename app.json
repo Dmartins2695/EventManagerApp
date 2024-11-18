@@ -9,16 +9,9 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "bundleIdentifier": "com.clientname.eventmanagerapp",
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSMotionUsageDescription": "Needs Permission for Steps"
-      }
+      "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./google-services.json",
-      "package": "com.clientname.eventmanagerapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -26,7 +19,7 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "single",
+      "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
