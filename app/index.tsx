@@ -1,14 +1,10 @@
-import { Text, View } from 'react-native'
+import { View } from '@/components/ui/view';
+import { Text } from '@/components/ui/text';
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  )
+    return (
+        <View className="flex-1 items-center justify-center bg-red-500">
+            <Text className="text-white text-center">Hello, Tailwind!</Text>
+        </View>
+    );
 }
