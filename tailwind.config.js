@@ -10,6 +10,7 @@ module.exports = {
     './components/**/*.{js,jsx,ts,tsx}', // Shared components
     './screens/**/*.{js,jsx,ts,tsx}', // Screen files
     './node_modules/@gluestack-ui/**/*.{js,jsx,ts,tsx}', // Gluestack components
+    './node_modules/@nativewind/**/*.js',
   ],
   presets: [require('nativewind/preset')],
   safelist: [
