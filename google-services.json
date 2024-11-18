@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "325178674319",
+    "project_id": "ejaseventappmanager",
+    "storage_bucket": "ejaseventappmanager.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325178674319:android:45998aae7fd70d5ec634fa",
+        "android_client_info": {
+          "package_name": "com.clientname.eventmanagerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325178674319-sogkkk1ep6n9tl3iavn501tvmj1a8l6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKye5wsc6cQs7R_G0H2RhMhTvzLnKkexk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325178674319-sogkkk1ep6n9tl3iavn501tvmj1a8l6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

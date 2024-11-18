@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image'
 import AuthLayout from '@/screens/auth/layout/_layout'
 import { auth } from '@/firebaseConfig'
 import { User } from '@firebase/auth-types'
-import {useRouter} from "expo-router";
+import { useRouter } from 'expo-router'
 
 const SplashScreenWithLeftBackground = () => {
   const router = useRouter()
@@ -17,7 +17,8 @@ const SplashScreenWithLeftBackground = () => {
       space="lg">
       <Image
         source={imageSource}
-        className={`max-w-[150px] max-h-[150px] w-[40%] h-[40%] rounded-full border-0 p-0 overflow-hidden `}
+        className={`max-w-[50px] max-h-[50px] w-[20%] h-[20%] rounded-full border-0 p-0 overflow-hidden `}
+        alt={'logo'}
       />
       <VStack className="w-full" space="lg">
         <Button
@@ -48,7 +49,7 @@ export const SplashScreen = () => {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser: any) => {
+    const unsubscribe = auth.onAuthStateChanged(currentUser => {
       setUser(currentUser as User | null)
     })
 

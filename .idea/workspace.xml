@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d176163-032f-42ca-ac99-69027725c0cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GoogleService-Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ejasLogo-Photoroom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/auth/screen-splash/screen-splash.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/screen-splash/screen-splash.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +58,10 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp" />
+      <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\assets\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash\assets\icons" />
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash\assets" />
