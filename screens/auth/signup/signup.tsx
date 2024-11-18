@@ -28,9 +28,9 @@ import {
   EyeOffIcon,
   Icon,
 } from '@/components/ui/icon'
-import { Button, ButtonText, ButtonIcon } from '@/components/ui/button'
+import { Button, ButtonText } from '@/components/ui/button'
 import { Keyboard } from 'react-native'
-import { useForm, Controller } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertTriangle } from 'lucide-react-native'

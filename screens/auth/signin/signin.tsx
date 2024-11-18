@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useToast } from '@/components/ui/toast'
 import { HStack } from '@/components/ui/hstack'
 import { VStack } from '@/components/ui/vstack'
@@ -37,7 +37,7 @@ import { AlertTriangle } from 'lucide-react-native'
 import { Pressable } from '@/components/ui/pressable'
 import { useNavigation } from '@react-navigation/native'
 import AuthLayout from '@/screens/auth/layout/_layout'
-import {Link} from "expo-router";
+import { Link } from 'expo-router'
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -65,36 +65,36 @@ const LoginWithLeftBackground = () => {
 
   const onSubmit = (data: LoginSchemaType) => {
     /* setLoading(true)
-    try {
-      if (user) {
-        if (user.password !== data.password)
-          setValidated({ emailValid: true, passwordValid: false })
-        await auth().signInWithEmailAndPassword(email, password)
-      else
-        {
-          setValidated({ emailValid: true, passwordValid: true })
-          toast.show({
-            placement: 'bottom right',
-            render: ({ id }) => {
-              return (
-                <Toast nativeID={id} variant="outline" action="success">
-                  <ToastTitle>Logged in successfully!</ToastTitle>
-                </Toast>
-              )
-            },
-          })
-          reset()
-        }
-      } else {
-        setValidated({ emailValid: false, passwordValid: true })
-      }
-    } catch (e) {
-      const err = e as FirebaseError
-      //ver como por um alert fixe
-      alert('Sign in failed: ' + err.message)
-    } finally {
-      setLoading(false)
-    }*/
+        try {
+          if (user) {
+            if (user.password !== data.password)
+              setValidated({ emailValid: true, passwordValid: false })
+            await auth().signInWithEmailAndPassword(email, password)
+          else
+            {
+              setValidated({ emailValid: true, passwordValid: true })
+              toast.show({
+                placement: 'bottom right',
+                render: ({ id }) => {
+                  return (
+                    <Toast nativeID={id} variant="outline" action="success">
+                      <ToastTitle>Logged in successfully!</ToastTitle>
+                    </Toast>
+                  )
+                },
+              })
+              reset()
+            }
+          } else {
+            setValidated({ emailValid: false, passwordValid: true })
+          }
+        } catch (e) {
+          const err = e as FirebaseError
+          //ver como por um alert fixe
+          alert('Sign in failed: ' + err.message)
+        } finally {
+          setLoading(false)
+        }*/
   }
 
   const handleState = () => {
