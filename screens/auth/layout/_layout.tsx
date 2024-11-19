@@ -16,23 +16,12 @@ const AuthLayout = (props: AuthLayoutProps) => {
       <ScrollView
         className="w-full h-full"
         contentContainerStyle={{ flexGrow: 1 }}>
-        <HStack className="w-full h-full bg-background-0 flex-grow justify-center">
-          <VStack
-            className="relative hidden h-full w-full flex-1  items-center  justify-center"
-            space="md">
-            <Image
-              source={require('@/assets/images/ejasLogo-Photoroom.png')}
-              className="object-cover h-full w-full"
-              alt="Radial Gradient"
-            />
-          </VStack>
-          <VStack className="items-center justify-center flex-1 w-full  p-9 gap-16 m-auto h-full">
-            {props.children}
-          </VStack>
-        </HStack>
+        <VStack className="flex-1 w-full h-full p-9 m-auto">
+          {props.children}
+        </VStack>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
 export default AuthLayout

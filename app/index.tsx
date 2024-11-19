@@ -13,11 +13,7 @@ const Index = () => {
     return () => clearTimeout(timeout) // Cleanup timeout
   }, [])
 
-  return (
-    <SafeAreaView className="flex items-center justify-center h-full">
-      <ActivityIndicator size="large" color="#0000ff" />
-    </SafeAreaView>
-  )
+  return <></>
 }
 
 export default Index

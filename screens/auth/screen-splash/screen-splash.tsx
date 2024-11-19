@@ -1,40 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { VStack } from '@/components/ui/vstack'
-import { Button, ButtonText } from '@/components/ui/button'
 import { Image } from '@/components/ui/image'
 import AuthLayout from '@/screens/auth/layout/_layout'
 import { auth } from '@/firebaseConfig'
 import { User } from '@firebase/auth-types'
 import { useRouter } from 'expo-router'
+import { Spinner } from '@/components/ui/spinner'
+import colors from 'tailwindcss/colors'
 
 const SplashScreenWithLeftBackground = () => {
   const router = useRouter()
   const imageSource = require('@/assets/images/ejasLogo-Photoroom.png')
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // @ts-ignore
+      router.push('auth/signin')
+    }, 3000)
+
+    return () => clearTimeout(timeout)
+  }, [])
+
   return (
     <VStack
-      className="w-full max-w-[440px] items-center h-full justify-center gap-4"
+      className="w-full max-w-[440px] items-center h-full justify-start gap-24"
       space="lg">
       <Image
         source={imageSource}
-        className={`max-w-[50px] max-h-[50px] w-[10%] h-[10%] rounded-full border-0 p-0 overflow-hidden `}
+        className={`w-full h-[320px] rounded-full border-0 p-0 overflow-hidden `}
         alt={'logo'}
       />
-      <VStack className="w-full h-2 gap-4" space="sm">
-        <Button
-          className="w-full my-5"
-          onPress={() => {
-            router.push('/auth/signin')
-          }}>
-          <ButtonText className="font-medium">Log in</ButtonText>
-        </Button>
-        <Button
-          onPress={() => {
-            router.push('/auth/signup')
-          }}>
-          <ButtonText className="font-medium">Sign Up</ButtonText>
-        </Button>
-      </VStack>
+      <Spinner size="large" color={colors.gray[500]} />
     </VStack>
   )
 }

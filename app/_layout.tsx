@@ -51,7 +51,7 @@ function RootLayoutNav() {
         <Stack.Screen name="auth/signup" />
         {/*<Stack.Screen name="forgot-password" />
           <Stack.Screen name="create-password" />
-          <Stack.Screen name="user/dahboard" />*/}
+          <Stack.Screen name="user/dashboard" />*/}
       </Stack>
     </GluestackUIProvider>
   )

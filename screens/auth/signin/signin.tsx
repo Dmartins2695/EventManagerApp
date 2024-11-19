@@ -110,7 +110,7 @@ const LoginWithLeftBackground = () => {
 
   return (
     <VStack className="max-w-[440px] w-full h-full" space="md">
-      <VStack className="md:items-center place-items-start" space="md">
+      <VStack className="items-center place-items-start" space="md">
         <Pressable
           onPress={() => {
             if (navigation.canGoBack()) {
@@ -122,12 +122,12 @@ const LoginWithLeftBackground = () => {
           }}>
           <Icon
             as={ArrowLeftIcon}
-            className="md:hidden text-background-800"
+            className="hidden text-background-800"
             size="xl"
           />
         </Pressable>
         <VStack>
-          <Heading className="md:text-center" size="3xl">
+          <Heading className="text-center" size="3xl">
             Login
           </Heading>
         </VStack>
