@@ -7,10 +7,10 @@
     <list default="true" id="5d176163-032f-42ca-ac99-69027725c0cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/auth/layout/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/layout/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/screen-splash/screen-splash.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/screen-splash/screen-splash.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/auth/signin/signin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/signin/signin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
@@ -38,7 +38,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;screen-splash-styles-fixing&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;signUp-Page&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/PC-PC/Desktop/EjasEventManagerApp/EventManagerApp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -50,7 +50,7 @@
     &quot;npm.reset-project.executor&quot;: &quot;Run&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.tailwindcss&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -151,6 +151,19 @@
       <workItem from="1731960411745" duration="22000" />
       <workItem from="1732009297789" duration="3283000" />
       <workItem from="1732039369531" duration="1163000" />
+      <workItem from="1732062189123" duration="1176000" />
+      <workItem from="1732094228987" duration="3103000" />
+      <workItem from="1732128229711" duration="1880000" />
+      <workItem from="1732134065679" duration="4562000" />
+      <workItem from="1732181962424" duration="1993000" />
+      <workItem from="1732216937072" duration="22000" />
+      <workItem from="1732216964443" duration="1245000" />
+      <workItem from="1732218418936" duration="957000" />
+      <workItem from="1732221954173" duration="991000" />
+      <workItem from="1732225001028" duration="414000" />
+      <workItem from="1732226982311" duration="269000" />
+      <workItem from="1732229536511" duration="932000" />
+      <workItem from="1732309727292" duration="935000" />
     </task>
     <servers />
   </component>

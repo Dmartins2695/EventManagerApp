@@ -12,7 +12,7 @@ type AuthLayoutProps = {
 const AuthLayout = (props: AuthLayoutProps) => {
   // @ts-ignore
   return (
-    <SafeAreaView className="w-full h-full">
+    <SafeAreaView className="w-full h-full bg-light">
       <ScrollView
         className="w-full h-full"
         contentContainerStyle={{ flexGrow: 1 }}>

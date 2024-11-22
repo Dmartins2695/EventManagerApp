@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { useToast } from '@/components/ui/toast'
+import { Toast, ToastTitle, useToast } from '@/components/ui/toast'
 import { HStack } from '@/components/ui/hstack'
 import { VStack } from '@/components/ui/vstack'
 import { Heading } from '@/components/ui/heading'
 import { Text } from '@/components/ui/text'
 import { LinkText } from '@/components/ui/link'
-
 import {
   FormControl,
   FormControlError,
@@ -33,11 +32,25 @@ import { Keyboard } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AlertTriangle } from 'lucide-react-native'
+import { AlertTriangle, AlertTriangleIcon } from 'lucide-react-native'
 import { Pressable } from '@/components/ui/pressable'
-import { useNavigation } from '@react-navigation/native'
+import { Link, useRouter } from 'expo-router'
 import AuthLayout from '@/screens/auth/layout/_layout'
-import { Link } from 'expo-router'
+
+const USERS = [
+  {
+    email: 'gabrial@gmail.com',
+    password: 'Gabrial@123',
+  },
+  {
+    email: 'tom@gmail.com',
+    password: 'Tom@123',
+  },
+  {
+    email: 'thomas@gmail.com',
+    password: 'Thomas@1234',
+  },
+]
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -61,41 +74,31 @@ const LoginWithLeftBackground = () => {
     emailValid: true,
     passwordValid: true,
   })
-  const [showPassword, setShowPassword] = useState(false)
 
   const onSubmit = (data: LoginSchemaType) => {
-    /* setLoading(true)
-        try {
-          if (user) {
-            if (user.password !== data.password)
-              setValidated({ emailValid: true, passwordValid: false })
-            await auth().signInWithEmailAndPassword(email, password)
-          else
-            {
-              setValidated({ emailValid: true, passwordValid: true })
-              toast.show({
-                placement: 'bottom right',
-                render: ({ id }) => {
-                  return (
-                    <Toast nativeID={id} variant="outline" action="success">
-                      <ToastTitle>Logged in successfully!</ToastTitle>
-                    </Toast>
-                  )
-                },
-              })
-              reset()
-            }
-          } else {
-            setValidated({ emailValid: false, passwordValid: true })
-          }
-        } catch (e) {
-          const err = e as FirebaseError
-          //ver como por um alert fixe
-          alert('Sign in failed: ' + err.message)
-        } finally {
-          setLoading(false)
-        }*/
+    const user = USERS.find(element => element.email === data.email)
+    if (user) {
+      if (user.password !== data.password)
+        setValidated({ emailValid: true, passwordValid: false })
+      else {
+        setValidated({ emailValid: true, passwordValid: true })
+        toast.show({
+          placement: 'bottom right',
+          render: ({ id }) => {
+            return (
+              <Toast nativeID={id} variant="outline" action="success">
+                <ToastTitle>Logged in successfully!</ToastTitle>
+              </Toast>
+            )
+          },
+        })
+        reset()
+      }
+    } else {
+      setValidated({ emailValid: false, passwordValid: true })
+    }
   }
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleState = () => {
     setShowPassword(showState => {
@@ -106,39 +109,42 @@ const LoginWithLeftBackground = () => {
     Keyboard.dismiss()
     handleSubmit(onSubmit)()
   }
-  const navigation = useNavigation()
+  const router = useRouter()
+
+  const alertIcon = () => {
+    return (
+      <Icon as={AlertTriangle} className="md:hidden stroke-error-500" size="sm" />
+    )
+  }
 
   return (
-    <VStack className="max-w-[440px] w-full h-full" space="md">
-      <VStack className="items-center place-items-start" space="md">
+    <VStack className="max-w-[440px] w-full" space="md">
+      <VStack className="md:items-center" space="md">
         <Pressable
           onPress={() => {
-            if (navigation.canGoBack()) {
-              navigation.goBack()
-            } else {
-              // @ts-ignore
-              navigation.navigate('index')
-            }
+            router.back()
           }}>
           <Icon
             as={ArrowLeftIcon}
-            className="hidden text-background-800"
+            className="md:hidden stroke-primary"
             size="xl"
           />
         </Pressable>
         <VStack>
-          <Heading className="text-center" size="3xl">
+          <Heading className="md:text-center text-typography" size="3xl">
             Login
           </Heading>
         </VStack>
       </VStack>
-      <VStack className="w-full place-items-center">
+      <VStack className="w-full">
         <VStack space="xl" className="w-full">
           <FormControl
             isInvalid={!!errors?.email || !validated.emailValid}
             className="w-full">
             <FormControlLabel>
-              <FormControlLabelText>Email</FormControlLabelText>
+              <FormControlLabelText className="text-typography">
+                Email
+              </FormControlLabelText>
             </FormControlLabel>
             <Controller
               defaultValue=""
@@ -155,8 +161,9 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="border-primary">
                   <InputField
+                    className="text-sm text-typography"
                     placeholder="Enter email"
                     value={value}
                     onChangeText={onChange}
@@ -168,8 +175,8 @@ const LoginWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon as={AlertTriangle} />
-              <FormControlErrorText>
+              <FormControlErrorIcon as={alertIcon} />
+              <FormControlErrorText className={'text-error'}>
                 {errors?.email?.message ||
                   (!validated.emailValid && 'Email ID not found')}
               </FormControlErrorText>
@@ -180,7 +187,9 @@ const LoginWithLeftBackground = () => {
             isInvalid={!!errors.password || !validated.passwordValid}
             className="w-full">
             <FormControlLabel>
-              <FormControlLabelText>Password</FormControlLabelText>
+              <FormControlLabelText className="text-typography">
+                Password
+              </FormControlLabelText>
             </FormControlLabel>
             <Controller
               defaultValue=""
@@ -197,8 +206,9 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="border-primary">
                   <InputField
+                    className="text-sm"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Enter password"
                     value={value}
@@ -209,7 +219,7 @@ const LoginWithLeftBackground = () => {
                   />
                   <InputSlot onPress={handleState} className="pr-3">
                     <InputIcon
-                      className={'h-1'}
+                      className={'stroke-primary-500'}
                       as={showPassword ? EyeIcon : EyeOffIcon}
                     />
                   </InputSlot>
@@ -217,8 +227,8 @@ const LoginWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon as={AlertTriangle} />
-              <FormControlErrorText>
+              <FormControlErrorIcon as={alertIcon} />
+              <FormControlErrorText className={'text-error'}>
                 {errors?.password?.message ||
                   (!validated.passwordValid && 'Password was incorrect')}
               </FormControlErrorText>
@@ -233,18 +243,21 @@ const LoginWithLeftBackground = () => {
                 <Checkbox
                   size="sm"
                   value="Remember me"
-                  isChecked={value}
+                  isChecked={true}
                   onChange={onChange}
                   aria-label="Remember me">
                   <CheckboxIndicator>
-                    <CheckboxIcon as={CheckIcon} />
+                    <CheckboxIcon
+                      as={CheckIcon}
+                      className={' stroke-white bg-secondary-400 '}
+                    />
                   </CheckboxIndicator>
                   <CheckboxLabel>Remember me</CheckboxLabel>
                 </Checkbox>
               )}
             />
             <Link href="/auth/forgot-password">
-              <LinkText className="font-medium text-sm text-primary-700 group-hover/link:text-primary-600">
+              <LinkText className="font-medium text-sm text-secondary-700 group-hover/link:text-secondary-400">
                 Forgot Password?
               </LinkText>
             </Link>
@@ -252,14 +265,14 @@ const LoginWithLeftBackground = () => {
         </VStack>
         <VStack className="w-full my-7 " space="lg">
           <Button className="w-full" onPress={handleSubmit(onSubmit)}>
-            <ButtonText className="font-medium">Log in</ButtonText>
+            <ButtonText className="text-white font-medium">Log in</ButtonText>
           </Button>
         </VStack>
         <HStack className="self-center" space="sm">
           <Text size="md">Don't have an account?</Text>
           <Link href="/auth/signup">
             <LinkText
-              className="font-medium text-primary-700 group-hover/link:text-primary-600  group-hover/pressed:text-primary-700"
+              className="font-medium text-secondary-700 group-hover/link:text-secondary-600  group-hover/pressed:text-secondary-700"
               size="md">
               Sign up
             </LinkText>
@@ -267,7 +280,7 @@ const LoginWithLeftBackground = () => {
         </HStack>
       </VStack>
     </VStack>
-  );
+  )
 }
 
 export const SignIn = () => {
@@ -275,5 +288,5 @@ export const SignIn = () => {
     <AuthLayout>
       <LoginWithLeftBackground />
     </AuthLayout>
-  );
+  )
 }
