@@ -37,6 +37,7 @@ import { AlertTriangle } from 'lucide-react-native'
 import { Pressable } from '@/components/ui/pressable'
 import AuthLayout from '@/screens/auth/layout/_layout'
 import { useNavigation } from '@react-navigation/native'
+import { renderAlertIcon } from '@/utils/icons'
 
 const signUpSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -86,7 +87,7 @@ const SignUpWithLeftBackground = () => {
             <Toast nativeID={id} variant="outline" action="success">
               <ToastTitle>Success</ToastTitle>
             </Toast>
-          );
+          )
         },
       })
       reset()
@@ -98,7 +99,7 @@ const SignUpWithLeftBackground = () => {
             <Toast nativeID={id} variant="solid" action="error">
               <ToastTitle>Passwords do not match</ToastTitle>
             </Toast>
-          );
+          )
         },
       })
     }
@@ -136,12 +137,12 @@ const SignUpWithLeftBackground = () => {
           }}>
           <Icon
             as={ArrowLeftIcon}
-            className="md:hidden stroke-background-800"
+            className="md:hidden stroke-primary"
             size="xl"
           />
         </Pressable>
         <VStack>
-          <Heading className="md:text-center" size="3xl">
+          <Heading className="md:text-center text-typography" size="3xl">
             Sign up
           </Heading>
           <Text>Sign up and start using gluestack</Text>
@@ -151,7 +152,9 @@ const SignUpWithLeftBackground = () => {
         <VStack space="xl" className="w-full">
           <FormControl isInvalid={!!errors.email}>
             <FormControlLabel>
-              <FormControlLabelText>Email</FormControlLabelText>
+              <FormControlLabelText className="text-typography">
+                Email
+              </FormControlLabelText>
             </FormControlLabel>
             <Controller
               name="email"
@@ -170,7 +173,7 @@ const SignUpWithLeftBackground = () => {
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input>
                   <InputField
-                    className="text-sm"
+                    className="text-sm text-typography"
                     placeholder="Email"
                     type="text"
                     value={value}
@@ -183,8 +186,8 @@ const SignUpWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon size="md" as={AlertTriangle} />
-              <FormControlErrorText>
+              <FormControlErrorIcon size="md" as={renderAlertIcon} />
+              <FormControlErrorText className={'text-error'}>
                 {errors?.email?.message}
               </FormControlErrorText>
             </FormControlError>
@@ -222,14 +225,17 @@ const SignUpWithLeftBackground = () => {
                     type={showPassword ? 'text' : 'password'}
                   />
                   <InputSlot onPress={handleState} className="pr-3">
-                    <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
+                    <InputIcon
+                      className={'stroke-primary-500'}
+                      as={showPassword ? EyeIcon : EyeOffIcon}
+                    />
                   </InputSlot>
                 </Input>
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon size="sm" as={AlertTriangle} />
-              <FormControlErrorText>
+              <FormControlErrorIcon size="sm" as={renderAlertIcon} />
+              <FormControlErrorText className={'text-error'}>
                 {errors?.password?.message}
               </FormControlErrorText>
             </FormControlError>
@@ -269,6 +275,7 @@ const SignUpWithLeftBackground = () => {
 
                   <InputSlot onPress={handleConfirmPwState} className="pr-3">
                     <InputIcon
+                      className={'stroke-primary-500'}
                       as={showConfirmPassword ? EyeIcon : EyeOffIcon}
                     />
                   </InputSlot>
@@ -276,8 +283,8 @@ const SignUpWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon size="sm" as={AlertTriangle} />
-              <FormControlErrorText>
+              <FormControlErrorIcon size="sm" as={renderAlertIcon} />
+              <FormControlErrorText className={'text-error'}>
                 {errors?.confirmpassword?.message}
               </FormControlErrorText>
             </FormControlError>
@@ -295,8 +302,11 @@ const SignUpWithLeftBackground = () => {
                   isChecked={value}
                   onChange={onChange}
                   aria-label="Remember me">
-                  <CheckboxIndicator>
-                    <CheckboxIcon as={CheckIcon} />
+                  <CheckboxIndicator className={'border-primary-600'}>
+                    <CheckboxIcon
+                      as={CheckIcon}
+                      className={'stroke-white bg-primary-600'}
+                    />
                   </CheckboxIndicator>
                   <CheckboxLabel>
                     I accept the Terms of Use & Privacy Policy *
@@ -307,7 +317,9 @@ const SignUpWithLeftBackground = () => {
                     className="w-full"
                     onPress={handleSubmit(onSubmit)}
                     isDisabled={!value}>
-                    <ButtonText className="font-medium">Sign up</ButtonText>
+                    <ButtonText className=" text-typography-contrast font-medium">
+                      Sign up
+                    </ButtonText>
                   </Button>
                 </VStack>
               </>
@@ -319,7 +331,7 @@ const SignUpWithLeftBackground = () => {
           <Text size="md">Already have an account?</Text>
           <Link href="/auth/signin">
             <LinkText
-              className="font-medium text-primary-700 group-hover/link:text-primary-600 group-hover/pressed:text-primary-700"
+              className="font-medium text-secondary-700 group-hover/link:text-secondary-600 group-hover/pressed:text-secondary-700"
               size="md">
               Login
             </LinkText>
@@ -327,7 +339,7 @@ const SignUpWithLeftBackground = () => {
         </HStack>
       </VStack>
     </VStack>
-  );
+  )
 }
 
 export const SignUp = () => {
@@ -335,5 +347,5 @@ export const SignUp = () => {
     <AuthLayout>
       <SignUpWithLeftBackground />
     </AuthLayout>
-  );
+  )
 }

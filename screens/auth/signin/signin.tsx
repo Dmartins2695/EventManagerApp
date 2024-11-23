@@ -36,6 +36,7 @@ import { AlertTriangle, AlertTriangleIcon } from 'lucide-react-native'
 import { Pressable } from '@/components/ui/pressable'
 import { Link, useRouter } from 'expo-router'
 import AuthLayout from '@/screens/auth/layout/_layout'
+import { renderAlertIcon } from '@/utils/icons'
 
 const USERS = [
   {
@@ -111,12 +112,6 @@ const LoginWithLeftBackground = () => {
   }
   const router = useRouter()
 
-  const alertIcon = () => {
-    return (
-      <Icon as={AlertTriangle} className="md:hidden stroke-error-500" size="sm" />
-    )
-  }
-
   return (
     <VStack className="max-w-[440px] w-full" space="md">
       <VStack className="md:items-center" space="md">
@@ -161,7 +156,7 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input className="border-primary">
+                <Input>
                   <InputField
                     className="text-sm text-typography"
                     placeholder="Enter email"
@@ -175,7 +170,7 @@ const LoginWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon as={alertIcon} />
+              <FormControlErrorIcon as={renderAlertIcon} />
               <FormControlErrorText className={'text-error'}>
                 {errors?.email?.message ||
                   (!validated.emailValid && 'Email ID not found')}
@@ -206,7 +201,7 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input className="border-primary">
+                <Input>
                   <InputField
                     className="text-sm"
                     type={showPassword ? 'text' : 'password'}
@@ -227,7 +222,7 @@ const LoginWithLeftBackground = () => {
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon as={alertIcon} />
+              <FormControlErrorIcon as={renderAlertIcon} />
               <FormControlErrorText className={'text-error'}>
                 {errors?.password?.message ||
                   (!validated.passwordValid && 'Password was incorrect')}
@@ -243,13 +238,13 @@ const LoginWithLeftBackground = () => {
                 <Checkbox
                   size="sm"
                   value="Remember me"
-                  isChecked={true}
+                  isChecked={value}
                   onChange={onChange}
                   aria-label="Remember me">
-                  <CheckboxIndicator>
+                  <CheckboxIndicator className={'border-primary-600'}>
                     <CheckboxIcon
                       as={CheckIcon}
-                      className={' stroke-white bg-secondary-400 '}
+                      className={'stroke-white bg-primary-600'}
                     />
                   </CheckboxIndicator>
                   <CheckboxLabel>Remember me</CheckboxLabel>
@@ -265,7 +260,7 @@ const LoginWithLeftBackground = () => {
         </VStack>
         <VStack className="w-full my-7 " space="lg">
           <Button className="w-full" onPress={handleSubmit(onSubmit)}>
-            <ButtonText className="text-white font-medium">Log in</ButtonText>
+            <ButtonText className="text-typography-contrast font-medium">Log in</ButtonText>
           </Button>
         </VStack>
         <HStack className="self-center" space="sm">

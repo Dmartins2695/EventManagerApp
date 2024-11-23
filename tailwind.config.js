@@ -65,6 +65,8 @@ module.exports = {
         },
         typography: {
           DEFAULT: 'rgb(var(--color-typography-primary) / <alpha-value>)',
+          contrast: 'rgb(var(--color-typography-contrast) / <alpha-value>)',
+          secondary: 'rgb(var(--color-typography-secondary) / <alpha-value>)',
           dark: 'rgb(var(--color-typography-dark) / <alpha-value>)',
           muted: 'rgb(var(--color-typography-muted) / <alpha-value>)',
         },

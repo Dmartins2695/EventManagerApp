@@ -41,7 +41,7 @@ export const config = {
     '--color-typography-primary': '85 85 85',
     '--color-typography-secondary': '157 140 131',
     '--color-typography-disabled': '73 41 27',
-    '--color-typography-light': '255 255 255',
+    '--color-typography-contrast': '255 255 255',
 
     /* Borders and Outlines */
     '--color-border-light': '200 200 200',
