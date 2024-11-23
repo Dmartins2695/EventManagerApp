@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d176163-032f-42ca-ac99-69027725c0cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/icons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ejas.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/gluestack-ui-provider/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/auth/layout/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/layout/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/auth/signin/signin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/signin/signin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/signup/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/signup/signup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +65,11 @@
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\assets\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\assets\images" />
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash\assets\icons" />
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash\assets" />
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screen-splash" />
       <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screenSplash\assets\icons" />
-      <recent name="C:\Users\PC-PC\Desktop\EjasEventManagerApp\EventManagerApp\screens\auth\screenSplash\assets" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -169,7 +168,7 @@
       <workItem from="1732226982311" duration="269000" />
       <workItem from="1732229536511" duration="932000" />
       <workItem from="1732309727292" duration="1119000" />
-      <workItem from="1732353759083" duration="2061000" />
+      <workItem from="1732353759083" duration="5584000" />
     </task>
     <servers />
   </component>

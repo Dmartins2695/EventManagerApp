@@ -37,6 +37,9 @@ import { Pressable } from '@/components/ui/pressable'
 import { Link, useRouter } from 'expo-router'
 import AuthLayout from '@/screens/auth/layout/_layout'
 import { renderAlertIcon } from '@/utils/icons'
+import { Image } from '@/components/ui/image'
+import { Spinner } from '@/components/ui/spinner'
+import colors from 'tailwindcss/colors'
 
 const USERS = [
   {
@@ -110,28 +113,29 @@ const LoginWithLeftBackground = () => {
     Keyboard.dismiss()
     handleSubmit(onSubmit)()
   }
+  const imageSource = require('@/assets/images/ejasLogo-Photoroom.png')
   const router = useRouter()
 
   return (
-    <VStack className="max-w-[440px] w-full" space="md">
-      <VStack className="md:items-center" space="md">
-        <Pressable
-          onPress={() => {
-            router.back()
-          }}>
-          <Icon
-            as={ArrowLeftIcon}
-            className="md:hidden stroke-primary"
-            size="xl"
-          />
-        </Pressable>
+    <VStack className="max-w-[440px] h-5/6 w-full justify-between" space="md">
+      <VStack
+        style={{ borderRadius: 75 }}
+        className="w-full max-w-[440px] h-fit bg-background mb-6"
+        space="lg">
+        <Image
+          source={imageSource}
+          className={`w-[150px] h-[150px] self-center rounded-full border-0 p-0 overflow-hidden  `}
+          alt={'logo'}
+        />
+      </VStack>
+      <VStack className="items-center" space="md">
         <VStack>
-          <Heading className="md:text-center text-typography" size="3xl">
+          <Heading className="text-center text-typography" size="3xl">
             Login
           </Heading>
         </VStack>
       </VStack>
-      <VStack className="w-full">
+      <VStack className="w-full align-middle justify-center">
         <VStack space="xl" className="w-full">
           <FormControl
             isInvalid={!!errors?.email || !validated.emailValid}
@@ -260,7 +264,9 @@ const LoginWithLeftBackground = () => {
         </VStack>
         <VStack className="w-full my-7 " space="lg">
           <Button className="w-full" onPress={handleSubmit(onSubmit)}>
-            <ButtonText className="text-typography-contrast font-medium">Log in</ButtonText>
+            <ButtonText className="text-typography-contrast font-medium">
+              Log in
+            </ButtonText>
           </Button>
         </VStack>
         <HStack className="self-center" space="sm">
