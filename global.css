@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*:root {
+    !* Background Colors *!
+    --color-background-light: #FBFBFB; !* Soft white/light gray *!
+    --color-background-muted: #F2F2F2; !* Muted, subtle gray *!
+
+    !* Typography Colors *!
+    --color-typography: #1A1A1A; !* Default text color (dark gray/black) *!
+    --color-typography-light: #FFFFFF; !* Light text for dark backgrounds *!
+    --color-typography-muted: #6B7280; !* Subdued text (gray) *!
+
+    !* Primary Colors (from palette/logo) *!
+    --color-primary: #2196F3; !* Blue or key logo color *!
+    --color-primary-light: #BBDEFB; !* A lighter shade of primary *!
+    --color-primary-dark: #1565C0; !* A darker shade of primary *!
+
+    !* Secondary Colors (from palette/logo) *!
+    --color-secondary: #9C27B0; !* Secondary accent color *!
+    --color-secondary-light: #E1BEE7; !* A lighter shade of secondary *!
+    --color-secondary-dark: #6A1B9A; !* A darker shade of secondary *!
+
+    !* Buttons *!
+    --color-button-primary-text: #FFFFFF; !* Text for primary buttons *!
+    --color-button-secondary-text: #FFFFFF; !* Text for secondary buttons *!
+}
+
+
+!* Backgrounds *!
+.bg-light {
+    background-color: var(--color-background-light);
+}
+
+.bg-muted {
+    background-color: var(--color-background-muted);
+}
+
+!* Typography *!
+.text-default {
+    color: var(--color-typography);
+}
+
+.text-light {
+    color: var(--color-typography-light);
+}
+
+.text-muted {
+    color: var(--color-typography-muted);
+}
+
+!* Buttons *!
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}*/
