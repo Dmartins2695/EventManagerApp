@@ -5,7 +5,7 @@ import { VStack } from '@/components/ui/vstack'
 import { Heading } from '@/components/ui/heading'
 import { Text } from '@/components/ui/text'
 import { LinkText } from '@/components/ui/link'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import {
   FormControl,
   FormControlError,
@@ -33,11 +33,13 @@ import { Keyboard } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AlertTriangle } from 'lucide-react-native'
 import { Pressable } from '@/components/ui/pressable'
 import AuthLayout from '@/screens/auth/layout/_layout'
 import { useNavigation } from '@react-navigation/native'
 import { renderAlertIcon } from '@/utils/icons'
+import { createUserWithEmailAndPassword } from '@firebase/auth'
+import { auth } from '@/firebaseConfig'
+import { handleError } from '@/utils/error'
 
 const signUpSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -78,26 +80,50 @@ const SignUpWithLeftBackground = () => {
   })
   const toast = useToast()
 
-  const onSubmit = (data: SignUpSchemaType) => {
+  const onSubmit = async (data: SignUpSchemaType) => {
     if (data.password === data.confirmpassword) {
-      toast.show({
-        placement: 'bottom right',
-        render: ({ id }) => {
-          return (
-            <Toast nativeID={id} variant="outline" action="success">
-              <ToastTitle>Success</ToastTitle>
-            </Toast>
-          )
-        },
-      })
-      reset()
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          data.email,
+          data.password,
+        )
+        if (user) {
+          toast.show({
+            placement: 'top left',
+            render: ({ id }) => {
+              return (
+                <Toast
+                  nativeID={id}
+                  className="bg-success-100"
+                  variant="solid"
+                  action="success">
+                  <ToastTitle className="color-success-500">
+                    Sign up successfully
+                  </ToastTitle>
+                </Toast>
+              )
+            },
+          })
+          reset()
+          router.push('/user/dashboard')
+        }
+      } catch (e) {
+        handleError({ e, message: 'Unsuccessful signup', toast })
+      }
     } else {
       toast.show({
-        placement: 'bottom right',
+        placement: 'top left',
         render: ({ id }) => {
           return (
-            <Toast nativeID={id} variant="solid" action="error">
-              <ToastTitle>Passwords do not match</ToastTitle>
+            <Toast
+              nativeID={id}
+              className="bg-error-100"
+              variant="solid"
+              action="error">
+              <ToastTitle className="color-error-500">
+                Passwords do not match
+              </ToastTitle>
             </Toast>
           )
         },
@@ -124,8 +150,8 @@ const SignUpWithLeftBackground = () => {
   const navigation = useNavigation()
 
   return (
-    <VStack className="max-w-[440px] w-full" space="md">
-      <VStack className="md:items-center" space="md">
+    <VStack className="max-w-[440px] w-full gap-8" space="md">
+      <VStack space="md">
         <Pressable
           onPress={() => {
             if (navigation.canGoBack()) {
@@ -135,17 +161,12 @@ const SignUpWithLeftBackground = () => {
               navigation.navigate('index')
             }
           }}>
-          <Icon
-            as={ArrowLeftIcon}
-            className="md:hidden stroke-primary"
-            size="xl"
-          />
+          <Icon as={ArrowLeftIcon} className="stroke-primary" size="xl" />
         </Pressable>
         <VStack>
-          <Heading className="md:text-center text-typography" size="3xl">
+          <Heading className="text-center text-typography" size="3xl">
             Sign up
           </Heading>
-          <Text>Sign up and start using gluestack</Text>
         </VStack>
       </VStack>
       <VStack className="w-full">
@@ -171,9 +192,9 @@ const SignUpWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="h-fit">
                   <InputField
-                    className="text-sm text-typography"
+                    className="text-sm text-typography h-fit"
                     placeholder="Email"
                     type="text"
                     value={value}
@@ -213,7 +234,7 @@ const SignUpWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="h-fit">
                   <InputField
                     className="text-sm"
                     placeholder="Password"
@@ -261,7 +282,7 @@ const SignUpWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="h-fit">
                   <InputField
                     placeholder="Confirm Password"
                     className="text-sm"

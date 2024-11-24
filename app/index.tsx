@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import { SafeAreaView } from '@/components/ui/safe-area-view'
-import { ActivityIndicator } from 'react-native'
 import { router } from 'expo-router'
 
 const Index = () => {

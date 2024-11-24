@@ -7,54 +7,25 @@ import { Text } from '@/components/ui/text'
 import { LinkText } from '@/components/ui/link'
 import {
   FormControl,
-  FormControlError,
-  FormControlErrorIcon,
-  FormControlErrorText,
   FormControlLabel,
   FormControlLabelText,
 } from '@/components/ui/form-control'
 import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input'
-import {
-  Checkbox,
-  CheckboxIcon,
-  CheckboxIndicator,
-  CheckboxLabel,
-} from '@/components/ui/checkbox'
-import {
-  ArrowLeftIcon,
-  CheckIcon,
-  EyeIcon,
-  EyeOffIcon,
-  Icon,
-} from '@/components/ui/icon'
+import { EyeIcon, EyeOffIcon } from '@/components/ui/icon'
 import { Button, ButtonText } from '@/components/ui/button'
 import { Keyboard } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AlertTriangle, AlertTriangleIcon } from 'lucide-react-native'
-import { Pressable } from '@/components/ui/pressable'
 import { Link, useRouter } from 'expo-router'
 import AuthLayout from '@/screens/auth/layout/_layout'
-import { renderAlertIcon } from '@/utils/icons'
 import { Image } from '@/components/ui/image'
-import { Spinner } from '@/components/ui/spinner'
-import colors from 'tailwindcss/colors'
-
-const USERS = [
-  {
-    email: 'gabrial@gmail.com',
-    password: 'Gabrial@123',
-  },
-  {
-    email: 'tom@gmail.com',
-    password: 'Tom@123',
-  },
-  {
-    email: 'thomas@gmail.com',
-    password: 'Thomas@1234',
-  },
-]
+import {
+  fetchSignInMethodsForEmail,
+  signInWithEmailAndPassword,
+} from '@firebase/auth'
+import { auth } from '@/firebaseConfig'
+import { handleError } from '@/utils/error'
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -65,41 +36,56 @@ const loginSchema = z.object({
 type LoginSchemaType = z.infer<typeof loginSchema>
 
 const LoginWithLeftBackground = () => {
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<LoginSchemaType>({
+  const { control, handleSubmit, reset } = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
   })
   const toast = useToast()
-  const [validated, setValidated] = useState({
-    emailValid: true,
-    passwordValid: true,
-  })
+  const router = useRouter()
 
-  const onSubmit = (data: LoginSchemaType) => {
-    const user = USERS.find(element => element.email === data.email)
-    if (user) {
-      if (user.password !== data.password)
-        setValidated({ emailValid: true, passwordValid: false })
-      else {
-        setValidated({ emailValid: true, passwordValid: true })
+  const onSubmit = async (data: LoginSchemaType) => {
+    /*const methods = await fetchSignInMethodsForEmail(auth, data.email)
+    console.log(methods)
+    if (methods.length === 0) {
+      return toast.show({
+        placement: 'top left',
+        render: ({ id }) => {
+          return (
+            <Toast
+              nativeID={id}
+              className="bg-error-100"
+              variant="solid"
+              action="error">
+              <ToastTitle className="color-error-500">
+                Email does not exist, please make sure to insert a valid email!
+              </ToastTitle>
+            </Toast>
+          )
+        },
+      })
+    }*/
+
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password,
+      )
+      if (user) {
+        router.push('/user/dashboard')
         toast.show({
-          placement: 'bottom right',
+          placement: 'top left',
           render: ({ id }) => {
             return (
-              <Toast nativeID={id} variant="outline" action="success">
-                <ToastTitle>Logged in successfully!</ToastTitle>
+              <Toast nativeID={id} className="bg-success-100" variant="solid" action="success">
+                <ToastTitle className="color-success-500">Logged in successfully!</ToastTitle>
               </Toast>
             )
           },
         })
         reset()
       }
-    } else {
-      setValidated({ emailValid: false, passwordValid: true })
+    } catch (e) {
+      handleError({ e, message: 'Unsucessful Login', toast })
     }
   }
   const [showPassword, setShowPassword] = useState(false)
@@ -114,17 +100,18 @@ const LoginWithLeftBackground = () => {
     handleSubmit(onSubmit)()
   }
   const imageSource = require('@/assets/images/ejasLogo-Photoroom.png')
-  const router = useRouter()
 
   return (
-    <VStack className="max-w-[440px] h-5/6 w-full justify-between" space="md">
+    <VStack className="max-w-[440px] w-full justify-between" space="md">
       <VStack
-        style={{ borderRadius: 75 }}
-        className="w-full max-w-[440px] h-fit bg-background mb-6"
+        style={{
+          borderRadius: 75,
+        }}
+        className="w-full max-w-[440px] max-h-64 min-h-64  bg-background mb-6"
         space="lg">
         <Image
           source={imageSource}
-          className={`w-[150px] h-[150px] self-center rounded-full border-0 p-0 overflow-hidden  `}
+          className="h-64 w-64 self-center rounded-full border-0 p-0 overflow-hidden"
           alt={'logo'}
         />
       </VStack>
@@ -137,9 +124,7 @@ const LoginWithLeftBackground = () => {
       </VStack>
       <VStack className="w-full align-middle justify-center">
         <VStack space="xl" className="w-full">
-          <FormControl
-            isInvalid={!!errors?.email || !validated.emailValid}
-            className="w-full">
+          <FormControl className="w-full">
             <FormControlLabel>
               <FormControlLabelText className="text-typography">
                 Email
@@ -160,7 +145,7 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="h-fit">
                   <InputField
                     className="text-sm text-typography"
                     placeholder="Enter email"
@@ -173,18 +158,9 @@ const LoginWithLeftBackground = () => {
                 </Input>
               )}
             />
-            <FormControlError>
-              <FormControlErrorIcon as={renderAlertIcon} />
-              <FormControlErrorText className={'text-error'}>
-                {errors?.email?.message ||
-                  (!validated.emailValid && 'Email ID not found')}
-              </FormControlErrorText>
-            </FormControlError>
           </FormControl>
           {/* Label Message */}
-          <FormControl
-            isInvalid={!!errors.password || !validated.passwordValid}
-            className="w-full">
+          <FormControl className="w-full">
             <FormControlLabel>
               <FormControlLabelText className="text-typography">
                 Password
@@ -205,7 +181,7 @@ const LoginWithLeftBackground = () => {
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <Input>
+                <Input className="h-fit">
                   <InputField
                     className="text-sm"
                     type={showPassword ? 'text' : 'password'}
@@ -225,16 +201,10 @@ const LoginWithLeftBackground = () => {
                 </Input>
               )}
             />
-            <FormControlError>
-              <FormControlErrorIcon as={renderAlertIcon} />
-              <FormControlErrorText className={'text-error'}>
-                {errors?.password?.message ||
-                  (!validated.passwordValid && 'Password was incorrect')}
-              </FormControlErrorText>
-            </FormControlError>
           </FormControl>
           <HStack className="w-full justify-between ">
-            <Controller
+            {/* Learn how to implement a remember me
+           <Controller
               name="rememberme"
               defaultValue={false}
               control={control}
@@ -254,7 +224,7 @@ const LoginWithLeftBackground = () => {
                   <CheckboxLabel>Remember me</CheckboxLabel>
                 </Checkbox>
               )}
-            />
+            />*/}
             <Link href="/auth/forgot-password">
               <LinkText className="font-medium text-sm text-secondary-700 group-hover/link:text-secondary-400">
                 Forgot Password?
