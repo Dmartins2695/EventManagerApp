@@ -13,9 +13,14 @@ export default function RootLayoutNav() {
 
   return (
     <PaperProvider theme={lightTheme}>
-      <View className={'bg-amber-500'}>
-        <TextField className={'text-center'}>something cool</TextField>
-      </View>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="auth/signin" />
+        <Stack.Screen name="auth/signup" />
+        <Stack.Screen name="user/dashboard" />
+        {/*<Stack.Screen name="forgot-password" />
+          <Stack.Screen name="create-password" />
+          */}
+      </Stack>
     </PaperProvider>
   )
 }

@@ -1,7 +1,16 @@
 // CustomComponents.ts
 import React, { ReactNode } from 'react'
 import { cssInterop } from 'nativewind'
-import { Text, Button, Card } from 'react-native-paper'
+import {
+  Button,
+  ButtonProps,
+  Card,
+  CardProps,
+  Text,
+  TextProps,
+  ThemeBase,
+} from 'react-native-paper'
+import { ElevationLevels } from 'react-native-paper/lib/typescript/types'
 
 // Enable NativeWind className support for Paper components
 cssInterop(Text, { className: 'style' })
@@ -9,7 +18,7 @@ cssInterop(Button, { className: 'style' })
 cssInterop(Card, { className: 'style' })
 
 // CustomText Component
-interface CustomTextProps {
+interface CustomTextProps extends TextProps<ThemeBase> {
   children: ReactNode
   className?: string
   style?: object
@@ -27,7 +36,7 @@ export const TextField: React.FC<CustomTextProps> = ({
 )
 
 // CustomButton Component
-interface CustomButtonProps {
+interface CustomButtonProps extends ButtonProps {
   children: ReactNode
   className?: string
   style?: object
@@ -46,14 +55,33 @@ export const Button_: React.FC<CustomButtonProps> = ({
   </Button>
 )
 
-// CustomCard Component (Optional)
-interface CustomCardProps {
+interface OutlinedCardProps extends CardProps {
   children: ReactNode
   className?: string
   style?: object
+  mode: 'outlined'
+  elevation?: never
 }
 
-export const Card_: React.FC<CustomCardProps> = ({
+interface ElevatedCardProps extends CardProps {
+  children: ReactNode
+  className?: string
+  style?: object
+  mode?: 'elevated'
+  elevation?: ElevationLevels
+}
+
+interface ContainedCardProps extends CardProps {
+  mode?: 'contained'
+  elevation?: never
+}
+
+type DynamicCardProps =
+  | ContainedCardProps
+  | ElevatedCardProps
+  | OutlinedCardProps
+
+export const Card_: React.FC<DynamicCardProps> = ({
   children,
   className,
   style,
