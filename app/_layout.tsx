@@ -9,7 +9,6 @@ import { verifyInstallation } from 'nativewind'
 import { TextField } from '@/components/WrappedComponents'
 
 export default function RootLayoutNav() {
-  verifyInstallation()
 
   return (
     <PaperProvider theme={lightTheme}>

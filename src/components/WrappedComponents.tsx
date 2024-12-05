@@ -9,11 +9,14 @@ import {
   Text,
   TextProps,
   ThemeBase,
+  TextInput,
+  TextInputProps,
 } from 'react-native-paper'
 import { ElevationLevels } from 'react-native-paper/lib/typescript/types'
 
 // Enable NativeWind className support for Paper components
 cssInterop(Text, { className: 'style' })
+cssInterop(TextInput, { className: 'style' })
 cssInterop(Button, { className: 'style' })
 cssInterop(Card, { className: 'style' })
 
@@ -35,6 +38,19 @@ export const TextField: React.FC<CustomTextProps> = ({
   </Text>
 )
 
+// CustomText Component
+interface CustomTextInputProps extends TextInputProps {
+  className?: string
+  style?: object
+}
+
+const TextInputField = (props: CustomTextInputProps) => <TextInput {...props} />
+
+TextInputField.Icon = TextInput.Icon
+TextInputField.Affix = TextInput.Affix
+
+export { TextInputField }
+
 // CustomButton Component
 interface CustomButtonProps extends ButtonProps {
   children: ReactNode
@@ -47,10 +63,9 @@ export const Button_: React.FC<CustomButtonProps> = ({
   children,
   className,
   style,
-  onPress,
   ...props
 }) => (
-  <Button className={className} style={style} onPress={onPress} {...props}>
+  <Button className={className} style={style} {...props}>
     {children}
   </Button>
 )
