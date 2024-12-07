@@ -7,12 +7,18 @@ const generateShades = rgb => {
   const [r, g, b] = rgb.match(/\d+/g).map(Number)
   const shades = {}
 
-  for (let i = 1; i <= 9; i++) {
-    const factor = i / 10
-    if (100 * i !== 500) {
-      shades[100 * i] =
-        `${Math.round(r + (255 - r) * factor)}, ${Math.round(g + (255 - g) * factor)}, ${Math.round(b + (255 - b) * factor)}`
-    }
+  // Generate lighter shades (100 to 400)
+  for (let i = 1; i <= 4; i++) {
+    const factor = (5 - i) / 5 // Lighten progressively towards 100
+    shades[100 * i] =
+      `${Math.round(r + (255 - r) * factor)}, ${Math.round(g + (255 - g) * factor)}, ${Math.round(b + (255 - b) * factor)}`
+  }
+
+  // Generate darker shades (600 to 900)
+  for (let i = 1; i <= 4; i++) {
+    const factor = i / 5 // Darken progressively towards 900
+    shades[500 + 100 * i] =
+      `${Math.round(r * (1 - factor))}, ${Math.round(g * (1 - factor))}, ${Math.round(b * (1 - factor))}`
   }
 
   return shades
@@ -39,7 +45,7 @@ const generateGlobalCSS = colors => {
     css += `  --color-${key}-500: ${value.match(/\d+, \d+, \d+/)};\n`
   }
 
-  css += '}\n\n'
+  css += '}\n'
 
   /*css += '.dark {\n'
   for (const [key, value] of Object.entries(colors)) {
