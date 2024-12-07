@@ -106,9 +106,9 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
         visible={visible}
         onDismiss={hideSnackbar}
         className={`rounded-lg p-1 ${pickColors(type, 'bg')}`}
-        duration={3000}>
+        duration={50000}>
         <View className={'flex-row px-3'}>
-          <View className={'px-3'}>
+          <View className={'px-3 mt-1'}>
             <Icon
               source={pickIcon(type)}
               color={pickIconColor(type)}

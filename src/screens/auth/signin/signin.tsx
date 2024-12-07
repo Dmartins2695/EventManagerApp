@@ -7,20 +7,48 @@ import {
   TextField,
   TextInputField,
 } from '@/components/WrappedComponents'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
+import {
+  fetchSignInMethodsForEmail,
+  signInWithEmailAndPassword,
+} from '@firebase/auth'
+import { auth } from '../../../../firebaseConfig'
+import { useSnackbar } from '@/components/SnackbarProvider'
+import { lightTheme } from '../../../../theme'
+import { FirebaseError } from '@firebase/util'
 
 export const Login = () => {
   const imageSource = require('/assets/images/ejasLogo-Photoroom.png')
+  const { showSnackbar } = useSnackbar()
   const [state, setState] = useState({
-    username: '',
+    email: '',
     password: '',
     rememberMe: false,
     showPassword: false,
   })
+
   const handleState = (target: string, value: string | boolean) => {
     setState(prevState => {
       return { ...prevState, [target]: value }
     })
+  }
+
+  const handleLogin = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        state.email,
+        state.password,
+      )
+      if (user) {
+        router.push('/user/dashboard')
+      }
+    } catch (e) {
+      if (e instanceof FirebaseError) {
+        showSnackbar('Unsuccessful login! Please verify your email and password!', 'error')
+        console.log(e.message)
+      }
+    }
   }
 
   return (
@@ -36,14 +64,16 @@ export const Login = () => {
         />
       </View>
       <View className={'items-center'}>
-        <Heading variant={'headlineLarge'}>Login</Heading>
+        <Heading variant={'headlineLarge'} className={'text-primary'}>
+          Login
+        </Heading>
       </View>
       <View className={'gap-8'}>
         <View className={'w-full align-middle justify-center px-3'}>
           <TextInputField
             mode={'flat'}
             className={'bg-background'}
-            value={state.username}
+            value={state.email}
             label={'Username'}
             onChangeText={value => {
               handleState('username', value)
@@ -58,6 +88,7 @@ export const Login = () => {
             secureTextEntry
             right={
               <TextInputField.Icon
+                color={lightTheme.colors.primary}
                 icon={state.showPassword ? 'eye-off' : 'eye'}
                 onPress={() => handleState('showPassword', !state.showPassword)}
               />
@@ -69,33 +100,32 @@ export const Login = () => {
           />
         </View>
         <View className={'w-full flex-row justify-between'}>
-          <View>{/*remember me*/}</View>
+          <View></View>
           <View>
             <Link
               href={'/auth/forgot-password'}
-              className={'underline text-info-700 font-medium font-body'}>
+              className={'underline text-info-600 font-medium font-body'}>
               Forgot password?
             </Link>
           </View>
         </View>
         <View className={'w-full align-middle justify-center'}>
-          <Button_
-            icon="login"
-            mode="contained"
-            onPress={() => console.log('Pressed')}>
+          <Button_ icon="login" mode="contained" onPress={handleLogin}>
             Log In
           </Button_>
-        </View>
-        <View className={'flex-row items-center justify-center'}>
-          <View className={'w-auto'}>
-            <TextField variant={'bodyMedium'}>Don't have an account? </TextField>
-          </View>
-          <View>
-            <Link
-              href={'/auth/forgot-password'}
-              className={'underline text-info-700 font-body font-medium '}>
-              Sign up
-            </Link>
+          <View className={'flex-row items-center justify-center pt-3'}>
+            <View className={'w-auto'}>
+              <TextField variant={'bodyMedium'}>
+                Don't have an account?{' '}
+              </TextField>
+            </View>
+            <View>
+              <Link
+                href={'/auth/forgot-password'}
+                className={'underline text-info-600 font-body font-medium '}>
+                Sign up
+              </Link>
+            </View>
           </View>
         </View>
       </View>
