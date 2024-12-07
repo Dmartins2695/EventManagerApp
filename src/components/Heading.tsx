@@ -5,10 +5,10 @@ interface HeadingProps extends React.ComponentProps<typeof TextField> {
   styles?: string // Optional additional styles
 }
 
-export const Heading: React.FC<HeadingProps> = ({ styles = '', ...props }) => {
+export const Heading: React.FC<HeadingProps> = ({ className = '', ...props }) => {
   return (
     <TextField
-      className={`text-onBackground font-bold font-heading tracking-sm my-0 ${styles}`}
+      className={`font-bold font-heading tracking-sm my-0 ${className}`}
       {...props}
     />
   )
