@@ -15,6 +15,16 @@ const baseColors = {
   onError: 'rgb(255, 255, 255)',
   errorContainer: 'rgb(255, 218, 214)',
   onErrorContainer: 'rgb(65, 0, 2)',
+  success: 'rgb(34, 128, 57)',
+  onSuccess: 'rgb(255, 255, 255)',
+  successContainer: 'rgb(203, 247, 218)',
+  onSuccessContainer: 'rgb(6, 58, 22)',
+  info: 'rgb(0, 123, 255)',
+  onInfo: 'rgb(255, 255, 255)',
+  warning: 'rgb(191,127,0)',
+  onWarning: 'rgb(255, 255, 255)',
+  warningContainer: 'rgb(255, 225, 192)',
+  onWarningContainer: 'rgb(63, 28, 0)',
 }
 
 const lightColors = {
@@ -39,6 +49,14 @@ const darkColors = {
   surfaceVariant: 'rgb(82, 68, 61)',
   onSurfaceVariant: 'rgb(215, 194, 185)',
   outline: 'rgb(160, 141, 133)',
+  success: 'rgb(153, 238, 178)',
+  onSuccess: 'rgb(0, 40, 15)',
+  successContainer: 'rgb(7, 69, 34)',
+  onSuccessContainer: 'rgb(203, 247, 218)',
+  warning: 'rgb(255, 184, 102)',
+  onWarning: 'rgb(66, 34, 0)',
+  warningContainer: 'rgb(102, 45, 0)',
+  onWarningContainer: 'rgb(255, 225, 192)',
 }
 
 export const lightTheme = {
@@ -74,6 +92,14 @@ export const tailwindColors = {
     onPrimary: lightColors.onPrimary,
     onBackground: lightColors.onBackground,
     onSurface: lightColors.onSurface,
+    success: lightColors.success,
+    onSuccess: lightColors.onSuccess,
+    warning: lightColors.warning,
+    onWarning: lightColors.onWarning,
+    error: lightColors.error,
+    onError: lightColors.onError,
+    info: lightColors.info,
+    onInfo: lightColors.onInfo,
   },
   dark: {
     primary: darkColors.primary,
@@ -83,5 +109,11 @@ export const tailwindColors = {
     onPrimary: darkColors.onPrimary,
     onBackground: darkColors.onBackground,
     onSurface: darkColors.onSurface,
+    success: darkColors.success,
+    onSuccess: darkColors.onSuccess,
+    warning: darkColors.warning,
+    onWarning: darkColors.onWarning,
+    info: lightColors.info,
+    onInfo: lightColors.onInfo,
   },
 }
