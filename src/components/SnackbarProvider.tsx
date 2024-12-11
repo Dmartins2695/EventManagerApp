@@ -16,9 +16,12 @@ interface SnackbarContextProps {
     message: string,
     type: 'success' | 'error' | 'info' | 'warning',
     icon?: IconSource,
+    size?: number,
   ) => void
+  resetSnackbarState: () => void
   hideSnackbar: () => void
-  icon: IconSource
+  icon: IconSource | null
+  size: number | null
 }
 
 const SnackbarContext = createContext<SnackbarContextProps | undefined>(
@@ -39,19 +42,30 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
   const [visible, setVisible] = useState(false)
   const [message, setMessage] = useState('')
   const [type, setType] = useState<'success' | 'error' | 'info' | 'warning'>(
-    'info',
+    'success',
   )
-  const [icon, setIcon] = useState<IconSource>('')
+  const [icon, setIcon] = useState<IconSource | null>(null)
+  const [size, setSize] = useState<number | null>(null)
 
   const showSnackbar = (
     msg: string,
     alertType: 'success' | 'error' | 'info' | 'warning',
     icon?: IconSource,
+    size?: number,
   ) => {
+    resetSnackbarState()
     setMessage(msg)
     setType(alertType)
     setVisible(true)
     icon && setIcon(icon)
+    size && setSize(size)
+  }
+
+  const resetSnackbarState = () => {
+    setMessage('false')
+    setType('success')
+    setIcon(null)
+    setSize(null)
   }
 
   const hideSnackbar = () => setVisible(false)
@@ -100,19 +114,28 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <SnackbarContext.Provider
-      value={{ visible, message, type, icon, showSnackbar, hideSnackbar }}>
+      value={{
+        visible,
+        message,
+        type,
+        icon,
+        size,
+        showSnackbar,
+        resetSnackbarState,
+        hideSnackbar,
+      }}>
       {children}
       <Snackbar
         visible={visible}
         onDismiss={hideSnackbar}
         className={`rounded-lg p-1 ${pickColors(type, 'bg')}`}
-        duration={50000}>
+        duration={5000}>
         <View className={'flex-row px-3'}>
-          <View className={'px-3 mt-1'}>
+          <View className={'px-3'}>
             <Icon
-              source={pickIcon(type)}
+              source={icon ? icon : pickIcon(type)}
               color={pickIconColor(type)}
-              size={18}
+              size={size ? size : 20}
             />
           </View>
           <TextField className={`ml-2 ${pickColors(type, 'text')}`}>

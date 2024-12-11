@@ -29,7 +29,7 @@ const baseColors = {
 
 const lightColors = {
   ...baseColors,
-  background: 'rgb(255, 251, 255)',
+  background: 'rgb(255, 248, 237)',
   onBackground: 'rgb(32, 26, 24)',
   surface: 'rgb(255, 251, 255)',
   onSurface: 'rgb(32, 26, 24)',

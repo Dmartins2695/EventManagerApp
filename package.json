@@ -12,12 +12,14 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "postinstallcooment": "patch-package",
+    "gen-globalCSS": "node .\\generateGlobalCss.js",
     "eas-build-post-install": "tailwindcss -i global.css -o ./node_modules/.cache/nativewind/global.css.native.css"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "@react-native-async-storage/async-storage": "^2.1.0",
     "@react-navigation/native": "^7.0.0",
     "@tanstack/react-query": "^5.0.0",
@@ -37,6 +39,7 @@
     "prettier": "^3.3.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-hook-form": "^7.54.0",
     "react-native": "0.76.3",
     "react-native-css-interop": "^0.1.22",
     "react-native-gesture-handler": "^2.21.2",
@@ -47,6 +50,7 @@
     "react-native-svg": "15.8.0",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.13",
+    "yup": "^1.5.0",
     "zustand": "^4.4.0"
   },
   "devDependencies": {

@@ -7,8 +7,12 @@
     <list default="true" id="5d176163-032f-42ca-ac99-69027725c0cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SnackbarProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SnackbarProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/auth/forgot-password/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/auth/forgot-password/forgot-password.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/auth/signin/signin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/auth/signin/signin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/auth/signup/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/auth/signup/signup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/theme.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -57,8 +61,9 @@
     &quot;npm.build.executor&quot;: &quot;Run&quot;,
     &quot;npm.doctor.executor&quot;: &quot;Run&quot;,
     &quot;npm.eas-build-post-install.executor&quot;: &quot;Run&quot;,
+    &quot;npm.gen-globalCSS.executor&quot;: &quot;Run&quot;,
     &quot;npm.reset-project.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Debug&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.tailwindcss&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\PC-PC\\Desktop\\EjasEventManagerApp\\EventManagerApp\\node_modules\\typescript\\lib&quot;,
@@ -82,16 +87,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="doctor" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -107,6 +102,16 @@
       <command value="run" />
       <scripts>
         <script value="eas-build-post-install" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="gen-globalCSS" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="gen-globalCSS" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -135,10 +140,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.gen-globalCSS" />
         <item itemvalue="npm.eas-build-post-install" />
         <item itemvalue="npm.doctor" />
         <item itemvalue="npm.reset-project" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +217,13 @@
       <workItem from="1733355765677" duration="1355000" />
       <workItem from="1733504927372" duration="15981000" />
       <workItem from="1733566276413" duration="1174000" />
-      <workItem from="1733597861420" duration="2710000" />
+      <workItem from="1733597861420" duration="3439000" />
+      <workItem from="1733656291105" duration="11090000" />
+      <workItem from="1733688368911" duration="877000" />
+      <workItem from="1733849943418" duration="594000" />
+      <workItem from="1733857938714" duration="3762000" />
+      <workItem from="1733863450131" duration="2924000" />
+      <workItem from="1733942297775" duration="1587000" />
     </task>
     <servers />
   </component>
